@@ -1,13 +1,11 @@
 {
-  "name": "Didula MD ",
-  "version": "1.0.0",
-  "description": "A WhatsApp bot created using Node.js",
-  "main": "index.js",
-  "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name Didula MD",
-    "stop": "pm2 stop Didula MD",
-    "restart": "pm2 restart Didula MD"
-  },
+    "name": "Didula MD",
+    "version": "1.1",
+    "description": "Status Views Bot",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
   "dependencies": {
     "@whiskeysockets/baileys": "6.6.0",
     "@adiwajshing/keyed-db": "^0.2.4",
