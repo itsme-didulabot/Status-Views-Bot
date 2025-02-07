@@ -8,6 +8,12 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 
+const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:Owner Name
+TEL;TYPE=CELL:94771820962
+END:VCARD`;
+
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
 const l = console.log
@@ -102,6 +108,36 @@ const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.
 const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
 const isCmd = body.startsWith(prefix)
 const command = isCmd ? body.slice(prefix.length).trim().split(' ').shift().toLowerCase() : ''
+
+
+        if (command === 'alive') {
+            const vCardMessage = {
+                contacts: {
+                    displayName: 'Didula Rashmika',
+                    contacts: [{
+                        vcard: vCard
+                    }]
+                }
+            };
+            conn.sendMessage(mek.key.remoteJid, vCardMessage, { quoted: mek });
+            return;
+        }
+
+        if (command === 'ping') {
+            conn.sendMessage(mek.key.remoteJid, { text: 'Pong! 🏓' }, { quoted: mek });
+            return;
+        }
+
+        if (command === 'hi') {
+            conn.sendMessage(mek.key.remoteJid, { text: 'Hello! How can I help you today?' }, { quoted: mek });
+            return;
+        }
+
+        // Add more commands as necessary
+    });
+
+
+
 const args = body.trim().split(/ +/).slice(1)
 const q = args.join(' ')
 const isGroup = from.endsWith('@g.us')
