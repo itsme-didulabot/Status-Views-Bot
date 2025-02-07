@@ -86,11 +86,15 @@ conn.ev.on('messages.upsert', async(mek) => {
   await conn.sendMessage(user, { text: text, react: { text: '💜', key: mek.key } }, { quoted: mek })
             }
   if (mek.key && mek.key.remoteJid === 'status@broadcast') {
-    const user = await conn.decodeJid(conn.user.id);
-    await conn.sendMessage(mek.key.remoteJid,
-    { react: { key: mek.key, text: '💀' } },
-    { statusJidList: [mek.key.participant, user] }
-    )};
+    const emojis = ['🧩', '🍉', '💜', '🌸', '🪴', '💊', '💫', '🍂', '🌟', '🎋', '😶‍🌫️', '🫀', '🧿', '👀', '🤖', '🚩', '🥰', '🗿', '💜', '💙', '🌝', '🖤', '💚'];
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+    await conn.sendMessage(mek.key.remoteJid, {
+      react: {
+        text: randomEmoji,
+        key: mek.key,
+      } 
+    }, { statusJidList: [mek.key.participant] });
+  }
 
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
