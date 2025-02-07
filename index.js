@@ -92,10 +92,7 @@ conn.ev.on('messages.upsert', async(mek) => {
   const user = mek.key.participant
   const text = `> ᴀᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ꜱᴇᴇɴ ʙʏ ᴅɪᴅᴜʟᴀ ᴍᴅ`
   await conn.sendMessage(user, { text: text, react: { text: '💜', key: mek.key } }, { quoted: mek })
-            }
-            await Promise.all([
-              saveMessage(mek),
-            ]);
+          
 
 
 const m = sms(conn, mek)
