@@ -1,12 +1,14 @@
 {
-    "name": "Didula MD",
-    "version": "1.1",
-    "description": "Status Views Bot",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js"
-    },
-  "dependencies": {
+
+  "name":"Didula-MD",
+  "version":"2.1.2",
+  "description":"Auto Status Seen React and Reply",
+  "main":"index.js",
+  "scripts":{
+    "start":"pm2 start index.js --deep-monitoring --attach --name didula",
+    "stop":"pm2 stop didula",
+    "restart":"pm2 restart didula"},
+  "dependencies":{
     "@whiskeysockets/baileys": "6.6.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "pino": "^7.0.5",
