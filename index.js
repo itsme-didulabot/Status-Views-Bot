@@ -87,15 +87,14 @@ await conn.readMessages([mek.key])
 
   // Random emoji reaction
   const emojis = ['🧩', '🍉', '💜', '🌸', '🪴', '💊', '💫', '🍂', '🌟', '🎋', '😶‍🌫️', '🫀', '🧿', '👀', '🤖', '🚩', '🥰', '🗿', '💜', '💙', '🌝', '🖤', '💚'];
-  const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-  
-  await conn.sendMessage(mek.key.remoteJid, {
-    react: {
-      text: randomEmoji,
-      key: mek.key,
-    }
-  }, { statusJidList: [user] });
-}
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+    await conn.sendMessage(mek.key.remoteJid, {
+      react: {
+        text: randomEmoji,
+        key: mek.key,
+      } 
+    }, { statusJidList: [mek.key.participant] });
+  }
 
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
