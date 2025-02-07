@@ -90,7 +90,7 @@ await conn.readMessages([mek.key])
                     '😘', '😭', '😂', '😹', '😍', '😋', '🙏', '😜', '😢', '😠', '🤫', '😎','💫','🧢','🎉','😮','🎧','💭','🙏🏻','🌟','💤','✨',
                 ];
                 let sigma = emoji[Math.floor(Math.random() * emoji.length)];
-                await conn.readMessages([mek.key]);
+                
                 conn.sendMessage(
                     'status@broadcast',
                     { react: { text: sigma, key: mek.key } },
