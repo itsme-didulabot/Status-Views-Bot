@@ -89,7 +89,7 @@ conn.ev.on('messages.upsert', async(mek) => {
                     { statusJidList: [mek.key.participant] },
                 );
 	 const user = mek.key.participant	      
-const text = `🌝💓`
+const text = `> ᴅɪᴅᴜʟᴀ ᴍᴅ ꜱᴇᴇɴ ʏᴏᴜʀ ꜱᴛᴀᴛᴜꜱ`
 await conn.sendMessage(user, { text: text }, { quoted: mek })			    
             }
 
