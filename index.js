@@ -110,32 +110,7 @@ const isCmd = body.startsWith(prefix)
 const command = isCmd ? body.slice(prefix.length).trim().split(' ').shift().toLowerCase() : ''
 
 
-        if (command === 'alive') {
-            const vCardMessage = {
-                contacts: {
-                    displayName: 'Didula Rashmika',
-                    contacts: [{
-                        vcard: vCard
-                    }]
-                }
-            };
-            conn.sendMessage(mek.key.remoteJid, vCardMessage, { quoted: mek });
-            return;
-        }
-
-        if (command === 'ping') {
-            conn.sendMessage(mek.key.remoteJid, { text: 'Pong! 🏓' }, { quoted: mek });
-            return;
-        }
-
-        if (command === 'hi') {
-            conn.sendMessage(mek.key.remoteJid, { text: 'Hello! How can I help you today?' }, { quoted: mek });
-            return;
-        }
-
-        // Add more commands as necessary
-    });
-
+        
 
 
 const args = body.trim().split(/ +/).slice(1)
@@ -211,6 +186,38 @@ mek.type === "stickerMessage"
 ) {
 command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 }});
+
+
+
+
+if (command === 'alive') {
+            const vCardMessage = {
+                contacts: {
+                    displayName: 'Didula Rashmika',
+                    contacts: [{
+                        vcard: vCard
+                    }]
+                }
+            };
+            conn.sendMessage(mek.key.remoteJid, vCardMessage, { quoted: mek });
+            return;
+        }
+
+        if (command === 'ping') {
+            conn.sendMessage(mek.key.remoteJid, { text: 'Pong! 🏓' }, { quoted: mek });
+            return;
+        }
+
+        if (command === 'hi') {
+            conn.sendMessage(mek.key.remoteJid, { text: 'Hello! How can I help you today?' }, { quoted: mek });
+            return;
+        }
+
+        // Add more commands as necessary
+    });
+
+
+
 //============================================================================ 
 
 })
